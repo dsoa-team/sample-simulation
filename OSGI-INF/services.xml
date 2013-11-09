@@ -93,7 +93,7 @@
 		</qos>
 	</service>
 	
-	<!-- <service interfaceName="br.com.bb.homebroker.Homebroker" pid="Provider-BBC-2" address="http://192.168.1.2:9089/informationProviderBBC">
+	 <service interfaceName="br.com.bb.homebroker.Homebroker" pid="Provider-BBC-2" address="http://192.168.1.2:9089/informationProviderBBC">
 		<qos>
 			<attribute operation="priceAlert" value="95.0" name="Availability">
 				<simulation>
@@ -115,10 +115,20 @@
 					<interval unit="ms" time="10000" value="1000"></interval>
 				</simulation>
 			</attribute>
+			
+			<attribute operation="priceAlert" name="BusinessException">
+				<simulation>
+					<interval unit="ms" time="3000">
+					</interval>
+					<interval unit="ms" time="2000" exceptionClass="br.com.bb.exception.OutOfScheduleException">
+					</interval>
+				</simulation>
+			</attribute>
+			
 		</qos>
 	</service>	
 	
-	<service interfaceName="br.com.bb.homebroker.Homebroker" pid="Provider-BBC-3" address="http://192.168.1.2:9999/informationProviderBBC">
+	<!--  <service interfaceName="br.com.bb.homebroker.Homebroker" pid="Provider-BBC-3" address="http://192.168.1.2:9999/informationProviderBBC">
 		<qos>
 		
 			<attribute operation="priceAlert" value="95.0" name="Availability">
