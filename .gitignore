@@ -1,0 +1,16 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+.settings
+*.swp
+*.svn
+
+# Maven folders
+target
+
+# Meld temp
+*.orig

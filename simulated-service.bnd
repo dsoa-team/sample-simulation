@@ -1,0 +1,2 @@
+Include-Resource: OSGI-INF=OSGI-INF
+DynamicImport-Package: *
