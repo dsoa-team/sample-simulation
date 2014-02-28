@@ -10,28 +10,38 @@
 							<parameter value="100.0" name="mean" />
 						</distribution>
 					</interval>
-					<interval unit="ms" time="15000">
+					<interval unit="ms" time="10000">
 						<distribution name="bernoulli">
 							<parameter value="0.0" name="mean" />
 						</distribution>
 					</interval>
-					<interval unit="ms" time="45000">
+					<interval unit="ms" time="50000">
 						<distribution name="bernoulli">
-							<parameter value="0.0" name="mean" />
+							<parameter value="100.0" name="mean" />
 						</distribution>
 					</interval>
 				</simulation>
-				</attribute>
-				<!-- Tempo de resposta -->
-				<attribute operation="priceAlert" value="200" name="AvgResponseTime">
-					<simulation>
-						<interval unit="ms" time="120000">
-							<distribution name="exponential">
-								<parameter value="500.0" name="mean" />
-							</distribution>
-						</interval>
-					</simulation>
-				</attribute>
-			</qos>
-		</service>
+			</attribute>
+			
+			<!-- Monitoracao funcional -->
+			<attribute operation="priceAlert" name="BusinessException">
+				<simulation>
+					<interval unit="ms" time="75000"></interval>
+					<interval unit="ms" time="3000" exceptionClass="br.com.bb.exception.OutOfScheduleException">
+					</interval>
+				</simulation>
+			</attribute>
+				
+			<!-- Tempo de resposta -->
+			<attribute operation="priceAlert" value="200" name="AvgResponseTime">
+				<simulation>
+					<interval unit="ms" time="120000">
+						<distribution name="exponential">
+							<parameter value="500.0" name="mean" />
+						</distribution>
+					</interval>
+				</simulation>
+			</attribute>
+		</qos>
+	</service>
 </services>
