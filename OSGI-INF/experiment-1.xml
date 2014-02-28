@@ -22,6 +22,15 @@
 					</interval>
 				</simulation>
 				</attribute>
+				<!-- Monitoracao funcional -->
+				<attribute operation="priceAlert" name="BusinessException">
+					<simulation>
+						<interval unit="ms" time="75000"></interval>
+						<interval unit="ms" time="3000" exceptionClass="br.com.bb.exception.OutOfScheduleException">
+						<interval unit="ms" time="42000"></interval>
+						</interval>
+					</simulation>
+				</attribute>
 				<!-- Tempo de resposta -->
 				<attribute operation="priceAlert" value="200" name="AvgResponseTime">
 					<simulation>
