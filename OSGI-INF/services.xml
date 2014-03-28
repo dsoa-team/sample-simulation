@@ -35,10 +35,7 @@
 			<!-- Tempo de resposta -->
 			<attribute operation="priceAlert" value="200" name="AvgResponseTime">
 				<simulation>
-					<interval unit="ms" time="120000">
-						<distribution name="exponential">
-							<parameter value="500.0" name="mean" />
-						</distribution>
+					<interval unit="ms" time="120000" value="500.0">
 					</interval>
 				</simulation>
 			</attribute>
