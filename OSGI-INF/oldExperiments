@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<services>
+	<service interfaceName="br.com.bb.provider.InformationProvider" pid="Provider-BBC-1">
+		<qos>
+			<!-- Disponibilidade -->
+			<attribute operation="getCotation" value="99.0" name="Availability">
+				<simulation>
+					<interval unit="ms" time="60000">
+						<distribution name="bernoulli">
+							<parameter value="100.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="10000">
+						<distribution name="bernoulli">
+							<parameter value="0.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="50000">
+						<distribution name="bernoulli">
+							<parameter value="100.0" name="mean" />
+						</distribution>
+					</interval>
+				</simulation>
+			</attribute>
+			
+			<!-- Monitoracao funcional -->
+			<attribute operation="getCotation" name="BusinessException">
+				<simulation>
+					<interval unit="ms" time="75000"></interval>
+					<interval unit="ms" time="3000" exceptionClass="br.com.bb.exception.OutOfScheduleException">
+					</interval>
+				</simulation>
+			</attribute>
+				
+			<!-- Tempo de resposta -->
+			<attribute operation="getCotation" value="100" name="AvgResponseTime">
+				<simulation>
+					<interval unit="ms" time="120000">
+						<distribution name="exponential">
+							<parameter value="500.0" name="mean" />
+						</distribution>
+					</interval>
+				</simulation>
+			</attribute>
+		</qos>
+	</service>
+	
+	<service interfaceName="br.com.bb.provider.InformationProvider" pid="Provider-BBC-2">
+		<qos>
+			<!-- Disponibilidade -->
+			<attribute operation="getCotation" value="95.0" name="Availability">
+				<simulation>
+					<interval unit="ms" time="60000">
+						<distribution name="bernoulli">
+							<parameter value="100.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="10000">
+						<distribution name="bernoulli">
+							<parameter value="0.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="50000">
+						<distribution name="bernoulli">
+							<parameter value="100.0" name="mean" />
+						</distribution>
+					</interval>
+				</simulation>
+			</attribute>
+			
+			<!-- Monitoracao funcional -->
+			<attribute operation="getCotation" name="BusinessException">
+				<simulation>
+					<interval unit="ms" time="75000"></interval>
+					<interval unit="ms" time="3000" exceptionClass="br.com.bb.exception.OutOfScheduleException">
+					</interval>
+				</simulation>
+			</attribute>
+				
+			<!-- Tempo de resposta -->
+			<attribute operation="getCotation" value="150" name="AvgResponseTime">
+				<simulation>
+					<interval unit="ms" time="120000">
+						<distribution name="exponential">
+							<parameter value="500.0" name="mean" />
+						</distribution>
+					</interval>
+				</simulation>
+			</attribute>
+		</qos>
+	</service>
+	
+	<service className="com.cnn.provider.InformationProvider" interfaceName="br.com.bb.provider.InformationProvider" pid="Provider-BBC-3">
+		<qos>
+			<!-- Disponibilidade -->
+			<attribute operation="getCotation" value="97.0" name="Availability">
+				<simulation>
+					<interval unit="ms" time="60000">
+						<distribution name="bernoulli">
+							<parameter value="100.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="10000">
+						<distribution name="bernoulli">
+							<parameter value="0.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="50000">
+						<distribution name="bernoulli">
+							<parameter value="100.0" name="mean" />
+						</distribution>
+					</interval>
+				</simulation>
+			</attribute>
+			
+			<!-- Monitoracao funcional -->
+			<attribute operation="getCotation" name="BusinessException">
+				<simulation>
+					<interval unit="ms" time="75000"></interval>
+					<interval unit="ms" time="3000" exceptionClass="br.com.bb.exception.OutOfScheduleException">
+					</interval>
+				</simulation>
+			</attribute>
+				
+			<!-- Tempo de resposta -->
+			<attribute operation="getCotation" value="210" name="AvgResponseTime">
+				<simulation>
+					<interval unit="ms" time="120000">
+						<distribution name="exponential">
+							<parameter value="500.0" name="mean" />
+						</distribution>
+					</interval>
+				</simulation>
+			</attribute>
+		</qos>
+	</service>
+</services>

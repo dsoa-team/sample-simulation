@@ -1,2 +1,3 @@
 Include-Resource: OSGI-INF=OSGI-INF
+Private-Package: com.bbc.provider, com.bloomberg.provider, com.cnn.provider, com.reuters.provider
 DynamicImport-Package: *

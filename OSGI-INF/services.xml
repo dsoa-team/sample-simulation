@@ -1,9 +1,60 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <services>
-	<service interfaceName="br.com.bb.homebroker.Homebroker" pid="Provider-BBC-1">
+	<service className="com.bbc.provider.InformationProvider" interfaceName="br.com.bb.provider.InformationProvider" pid="Provider-BBC" address="http://150.161.11.188:9797/ProviderBBC">
 		<qos>
 			<!-- Disponibilidade -->
-			<attribute operation="priceAlert" value="95.0" name="Availability">
+<!-- 			<attribute operation="getCotation" value="99.0" name="Availability">
+				<simulation>
+					<interval unit="ms" time="40000">
+						<distribution name="bernoulli">
+							<parameter value="100.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="5000">
+						<distribution name="bernoulli">
+							<parameter value="0.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="75000">
+						<distribution name="bernoulli">
+							<parameter value="100.0" name="mean" />
+						</distribution>
+					</interval>
+				</simulation>
+			</attribute> -->
+				
+			<!-- Tempo de resposta -->
+			<attribute operation="getCotation" value="150" name="AvgResponseTime">
+				<simulation>
+					<interval unit="ms" time="60000">
+						<distribution name="exponential">
+							<parameter value="200.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="60000">
+						<distribution name="exponential">
+							<parameter value="400.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="60000">
+						<distribution name="exponential">
+							<parameter value="600.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="60000">
+						<distribution name="exponential">
+							<parameter value="80000.0" name="mean" />
+						</distribution>
+					</interval>
+				</simulation>
+			</attribute>
+		</qos>
+	</service>
+
+	<service className="com.bloomberg.provider.InformationProvider" interfaceName="br.com.bb.provider.InformationProvider" pid="Provider-Bloomberg">
+		<qos>
+			<!-- Disponibilidade -->
+			<!-- <attribute operation="getCotation" value="97.0" name="Availability">
 				<simulation>
 					<interval unit="ms" time="60000">
 						<distribution name="bernoulli">
@@ -21,23 +72,91 @@
 						</distribution>
 					</interval>
 				</simulation>
-			</attribute>
+			</attribute> -->
 			
 			<!-- Monitoracao funcional -->
-			<attribute operation="priceAlert" name="BusinessException">
+<!-- 			<attribute operation="getCotation" name="BusinessException">
 				<simulation>
 					<interval unit="ms" time="75000"></interval>
-					<interval unit="ms" time="3000" exceptionClass="br.com.bb.exception.OutOfScheduleException">
+					<interval unit="ms" time="5000" exceptionClass="br.com.bb.exception.OutOfScheduleException">
+					</interval>
+					<interval unit="ms" time="40000"></interval>
+				</simulation>
+			</attribute> -->
+				
+			<!-- Tempo de resposta -->
+			<attribute operation="getCotation" value="200" name="AvgResponseTime">
+				<simulation>
+					<interval unit="ms" time="120000">
+						<distribution name="exponential">
+							<parameter value="150.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="120000">
+						<distribution name="exponential">
+							<parameter value="300.0" name="mean" />
+						</distribution>
+					</interval>
+				</simulation>
+			</attribute>
+		</qos>
+	</service>
+
+	<service className="com.cnn.provider.InformationProvider" interfaceName="br.com.bb.provider.InformationProvider" pid="Provider-CNN" address="http://150.161.11.188:9798/ProviderCNN">
+		<qos>
+			<!-- Disponibilidade -->
+			<attribute operation="getCotation" value="95.0" name="Availability">
+				<simulation>
+					<interval unit="ms" time="90000">
+						<distribution name="bernoulli">
+							<parameter value="100.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="3000">
+						<distribution name="bernoulli">
+							<parameter value="0.0" name="mean" />
+						</distribution>
+					</interval>
+					<interval unit="ms" time="27000">
+						<distribution name="bernoulli">
+							<parameter value="100.0" name="mean" />
+						</distribution>
 					</interval>
 				</simulation>
 			</attribute>
 				
 			<!-- Tempo de resposta -->
-			<attribute operation="priceAlert" value="200" name="AvgResponseTime">
+			<attribute operation="getCotation" value="210" name="AvgResponseTime">
 				<simulation>
 					<interval unit="ms" time="120000">
 						<distribution name="exponential">
-							<parameter value="500.0" name="mean" />
+							<parameter value="400.0" name="mean" />
+						</distribution>
+					</interval>
+				</simulation>
+			</attribute>
+		</qos>
+	</service>
+	
+	<service className="com.reuters.provider.InformationProvider" interfaceName="br.com.bb.provider.InformationProvider" pid="Provider-Reuters" address="http://150.161.11.188:9799/ProviderCNN">
+		<qos>
+			<!-- Disponibilidade -->
+			<attribute operation="getCotation" value="95.0" name="Availability">
+				<simulation>
+					<interval unit="ms" time="120000">
+						<distribution name="bernoulli">
+							<parameter value="100.0" name="mean" />
+						</distribution>
+					</interval>
+				</simulation>
+			</attribute>
+			
+			<!-- Tempo de resposta -->
+			<attribute operation="getCotation" value="300" name="AvgResponseTime">
+				<simulation>
+					<interval unit="ms" time="120000">
+						<distribution name="exponential">
+							<parameter value="600.0" name="mean" />
 						</distribution>
 					</interval>
 				</simulation>
