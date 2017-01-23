@@ -1,2 +1,3 @@
 Include-Resource: OSGI-INF=OSGI-INF
+--Include-Resource: DSOA-INF=src/test/resources/epcenter/configuration, DSOA-INF=configuration
 DynamicImport-Package: *
